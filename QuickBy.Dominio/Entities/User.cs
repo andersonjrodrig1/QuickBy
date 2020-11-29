@@ -2,7 +2,7 @@
 
 namespace QuickBy.Dominio.Entities
 {
-    public class User
+    public class User : Entity
     {
         public int Id { get; set; }
         public string Email { get; set; }
@@ -14,5 +14,22 @@ namespace QuickBy.Dominio.Entities
         /// User have one or many Orders
         /// </summary>
         public ICollection<Order> Orders { get; set; }
+
+        public override void Validate()
+        {
+            ClearMessageValidation();
+
+            if (string.IsNullOrEmpty(Email))
+                AddMessageCritical("Email não informado.");
+
+            if (string.IsNullOrEmpty(Password))
+                AddMessageCritical("Senha não informada.");
+
+            if (string.IsNullOrEmpty(Name))
+                AddMessageCritical("Nome não informado.");
+
+            if (string.IsNullOrEmpty(Surname))
+                AddMessageCritical("Sobrenome não informado.");
+        }
     }
 }
