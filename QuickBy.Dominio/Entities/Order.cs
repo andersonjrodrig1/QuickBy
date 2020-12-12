@@ -9,20 +9,28 @@ namespace QuickBy.Dominio.Entities
     {
         public int Id { get; set; }
         public DateTime DateOrder { get; set; }
+
+        #region User
         public int UserId { get; set; }
+        public virtual User User { get; set; }
+        #endregion
+
         public DateTime PreviousDeliveryDate { get; set; }
         public string CEP { get; set; }
         public string Estate { get; set; }
         public string City { get; set; }
         public string FullAddress { get; set; }
         public string Number { get; set; }
+
+        #region FormPayment
         public int FormPaymentId { get; set; }
-        public FormPayment FormPayment { get; set; }
+        public virtual FormPayment FormPayment { get; set; }
+        #endregion
 
         /// <summary>
         /// Order have one ou many ItemsOrder
         /// </summary>
-        public ICollection<ItemOrder> ItemOrders { get; set; }
+        public virtual ICollection<ItemOrder> ItemOrders { get; set; }
 
         public override void Validate()
         {

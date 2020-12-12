@@ -13,7 +13,7 @@ namespace QuickBy.Dominio.Entities
         /// <summary>
         /// User have one or many Orders
         /// </summary>
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
         public override void Validate()
         {

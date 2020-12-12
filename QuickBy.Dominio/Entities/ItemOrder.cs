@@ -3,7 +3,12 @@
     public class ItemOrder : Entity
     {
         public int Id { get; set; }
+
+        #region Product
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
+        #endregion
+
         public int Quantity { get; set; }
 
         public override void Validate()
