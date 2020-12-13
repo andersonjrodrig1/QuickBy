@@ -17,6 +17,7 @@ namespace QuickBy.Repositorio.Config
             builder.Property(i => i.Id).HasColumnName("ID").UseMySqlIdentityColumn().IsRequired();
             builder.Property(i => i.ProductId).HasColumnName("PRODUCT_ID").IsRequired();
             builder.Property(i => i.Quantity).HasColumnName("QUANTITY").IsRequired();
+            builder.Property(i => i.OrderId).HasColumnName("ORDER_ID").IsRequired();
 
             builder.HasOne(i => i.Product).WithMany().HasForeignKey(i => i.ProductId).HasConstraintName("FK_ITEM_ORDER_PRODUCT_PRODUCT_ID").OnDelete(DeleteBehavior.Restrict);
         }

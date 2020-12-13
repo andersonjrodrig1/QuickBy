@@ -9,6 +9,8 @@
         public virtual Product Product { get; set; }
         #endregion
 
+        public int OrderId { get; set; }
+
         public int Quantity { get; set; }
 
         public override void Validate()

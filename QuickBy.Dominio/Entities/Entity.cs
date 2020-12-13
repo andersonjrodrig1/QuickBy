@@ -5,7 +5,7 @@ namespace QuickBy.Dominio.Entities
 {
     public abstract class Entity
     {
-        public List<string> _messagesValidation { get; set; }
+        private List<string> _messagesValidation { get; set; }
 
         private List<string> messagesValidation
         {

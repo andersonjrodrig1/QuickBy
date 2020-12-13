@@ -5,6 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201213155611_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213155611_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213160507_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213160507_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213160607_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213160607_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213164103_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213164103_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213164234_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213164234_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213164719_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213164719_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213165252_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213165252_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213165631_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213165631_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213165819_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213165819_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213165858_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213165858_Initial-Create.Designer.cs" />
+    <Compile Remove="Migrations\20201213171058_Initial-Create.cs" />
+    <Compile Remove="Migrations\20201213171058_Initial-Create.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
   </ItemGroup>

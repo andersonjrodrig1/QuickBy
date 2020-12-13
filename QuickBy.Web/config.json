@@ -1,6 +1,6 @@
 {
-  "ConnectionString": {
-    "SqlServerConnection":  "",
-    "MySqlConnection": "server=localhost;userid=root;password=admin;database=saleswebmvc"
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    "MySqlConnection": "server=localhost;userid=root;password=admin;database=QuickBuyDB"
   }
 }

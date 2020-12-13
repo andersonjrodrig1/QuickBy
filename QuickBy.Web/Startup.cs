@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using QuickBy.Repositorio.Context;
+using System;
 
 namespace QuickBy.Web
 {
@@ -29,7 +31,18 @@ namespace QuickBy.Web
 
             var connectionString = Configuration.GetConnectionString("MySqlConnection");
 
-            services.AddDbContext<QuickByContext>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, m => m.MigrationsAssembly("QuickBuyRepository")));
+            services.AddDbContextPool<QuickByContext>(options =>
+            {
+                options.UseMySql(connectionString,
+                    mysqlOptions =>
+                    {
+                        mysqlOptions.ServerVersion(new Version(5, 5, 51), ServerType.MySql);
+                    });
+            });
+
+            services.AddDbContext<QuickByContext>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, m => m.MigrationsAssembly("QuickBy.Repositorio")));
+
+            services.AddScoped<QuickByInitialize>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -39,7 +52,7 @@ namespace QuickBy.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, QuickByInitialize init)
         {
             if (env.IsDevelopment())
             {
@@ -51,6 +64,8 @@ namespace QuickBy.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            init.InitializeQuickByDB();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
